@@ -28,11 +28,9 @@
 <!-- load the SELECT library -->
 <script src="main.js"></script>
 <script type="text/javascript">
-	var dom = Select({
-		structure: "footer"
-	}).el
+	var element = new Select("p", "main").el
 
-	console.log(dom.structure);
+	console.log(element.innerHTML);
 
 </script>
 </body>
