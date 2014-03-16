@@ -47,8 +47,6 @@ class SELECT
 		@api = { el: null }
 		@api.val = (value) ->
 			_getElementVal value
-
-		console.log("build", typeof el)
 		switch typeof el
 			when "string"
 				parent = if parent && typeof parent is "string" then @query(parent) else parent
@@ -62,7 +60,6 @@ class SELECT
 		return @api
 
 	query: (selector, parent) ->
-		console.log("piss", selector, parent)
 		parent = parent || document
 		return parent.querySelector selector
 	queryAll: (selector, parent) ->
