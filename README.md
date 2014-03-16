@@ -5,7 +5,7 @@ Select is a library to grab all the elements on the page at once when you need t
 
 
 ```
-var els = dom({
+var els = new Select({
     footer: 'footer',
     paragraphs: {
         header: 'header p',
