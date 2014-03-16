@@ -68,9 +68,10 @@
       this.api.val = function(value) {
         return _getElementVal(value);
       };
-      console.log(typeof el);
+      console.log("build", typeof el);
       switch (typeof el) {
         case "string":
+          parent = parent && typeof parent === "string" ? this.query(parent) : parent;
           this.api.el = this.query(el, parent);
           break;
         case "object":
@@ -82,6 +83,7 @@
     }
 
     SELECT.prototype.query = function(selector, parent) {
+      console.log("piss", selector, parent);
       parent = parent || document;
       return parent.querySelector(selector);
     };
@@ -94,5 +96,7 @@
     return SELECT;
 
   })();
+
+  window.Select = SELECT;
 
 }).call(this);

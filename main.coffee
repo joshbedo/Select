@@ -48,10 +48,10 @@ class SELECT
 		@api.val = (value) ->
 			_getElementVal value
 
-
-		console.log(typeof el)
+		console.log("build", typeof el)
 		switch typeof el
 			when "string"
+				parent = if parent && typeof parent is "string" then @query(parent) else parent
 				@api.el = @query el, parent
 			when "object"
 				if typeof el.nodeName isnt "undefined"
@@ -62,10 +62,12 @@ class SELECT
 		return @api
 
 	query: (selector, parent) ->
+		console.log("piss", selector, parent)
 		parent = parent || document
-		parent.querySelector selector
+		return parent.querySelector selector
 	queryAll: (selector, parent) ->
 		parent = parent || document
-		parent.querySelectorAll selector
+		return parent.querySelectorAll selector
 
 
+window.Select = SELECT
