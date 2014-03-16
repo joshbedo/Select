@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Brand New Web Site</title>
+  <meta name="description" content="The Brand New Web Site">
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<form>
+    <input type="text" value="sample text" />
+    <input type="radio" name="options" value="A">
+    <input type="radio" name="options" checked value="B">
+    <select>
+        <option value="10"></option>
+        <option value="20"></option>
+        <option value="30" selected></option>
+    </select>
+    <footer>version: 0.3</footer>
+</form>
+
+<!-- load the SELECT library -->
+<script src="js/main.js"></script>
+<script type="text/javascript">
+	var dom = Select({
+		structure: "footer"
+	}).el
+
+	console.log(dom.structure);
+
+</script>
+</body>
+</html>
