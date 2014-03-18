@@ -1,9 +1,20 @@
 describe('Testing Select library methods', function() {
   describe('Testing Select #val()', function() {
-    var formElem = document;
 
     it('Should output the value of the "main" p tag', function() {
       var main = new Select("p", "main").val();
+
+      expect(main).to.equal("test");
+    });
+
+    it('Should grab parent object and values', function() {
+      var product = new Select({
+        title: ".title",
+        image: ".image",
+        buy: ".btn-purchase"
+      }, ".product");
+
+      expect(product.title.value()).to.not.equal(null)
 
       expect(main).to.equal("test");
     });
@@ -31,5 +42,21 @@ describe('Testing Select library methods', function() {
 
       expect(footer.el).to.not.equal(null);
     });
+
+    it('should select a parent element and change attributes', function() {
+      var image = new Select({
+        title: ".title",
+        titleImage: ".image",
+        submitButton: ".btn-submit"
+      }, ".product");
+
+      image.title = "test";
+      image.titleImage.src = "fake_image";
+
+      expect(typeof image).to.be.equal("object");
+      expect(image.title).to.be.equal("test");
+      expect(image.titleImage.src).to.not.equal(null);
+    });
+
   });
 });
