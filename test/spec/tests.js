@@ -19,6 +19,16 @@ describe('Testing Select library methods', function() {
       expect(main).to.equal("test");
     });
 
+    it('Should grab element and change vlaue', function() {
+      var product = new Select("p", "product");
+      product.val("test");
+
+
+      expect(product.val).to.equal("test")
+
+      expect(main).to.equal("test");
+    });
+
   });
 
   describe('Testing Select #el', function() {
