@@ -39,3 +39,5 @@ Tests
 =======
 
 The tests are setup to examine so you can see different usages of the library. You can get to the tests by going to ```/test/spec/index.html```
+
+!["Tests with Mocha"](/screenshot.png "Tests with Mocha")
