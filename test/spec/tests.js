@@ -20,9 +20,11 @@ describe('Testing Select library methods', function() {
         buy: ".btn-purchase"
       }, ".product");
 
-      expect(product.title.value()).to.not.equal(null)
 
-      expect(main).to.equal("test");
+      expect(product.title.val()).to.not.equal(null)
+
+      product.title.val("New Product Name");
+      expect(product.title.val).to.equal("New Product Name");
     });
 
   });

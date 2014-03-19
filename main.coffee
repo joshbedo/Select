@@ -45,10 +45,6 @@ class SELECT
 	  		 break
 	  	return @		
 	  				
-
-	  	#return if set then @api else null
-
-		
 	constructor: (el, parent) ->
 		@api = { el: null }
 		@api.val = (value) ->
@@ -61,9 +57,23 @@ class SELECT
 			when "object"
 				if typeof el.nodeName isnt "undefined"
 					@api.el = el
+				else
+					lookup = (value, obj) ->
+						obj = obj or this
+						for prop of obj
+							if typeof obj[prop].el isnt "undefined"
+								obj[prop] = obj[prop].val(value)
+							else
+								console.log "fire else"
+						delete obj.val
+						return obj
 
+					res = { val: lookup }
 
-		
+					for key of el 
+						res[key] = new Select(el[key], parent)
+					return res
+			 break
 		return @api
 
 	query: (selector, parent) ->

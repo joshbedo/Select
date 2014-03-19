@@ -60,6 +60,7 @@
     };
 
     function SELECT(el, parent) {
+      var key, lookup, res;
       this.api = {
         el: null
       };
@@ -74,7 +75,29 @@
         case "object":
           if (typeof el.nodeName !== "undefined") {
             this.api.el = el;
+          } else {
+            lookup = function(value, obj) {
+              var prop;
+              obj = obj || this;
+              for (prop in obj) {
+                if (typeof obj[prop].el !== "undefined") {
+                  obj[prop] = obj[prop].val(value);
+                } else {
+                  console.log("fire else");
+                }
+              }
+              delete obj.val;
+              return obj;
+            };
+            res = {
+              val: lookup
+            };
+            for (key in el) {
+              res[key] = new Select(el[key], parent);
+            }
+            return res;
           }
+          break;
       }
       return this.api;
     }
