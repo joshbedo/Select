@@ -6,59 +6,57 @@
     var _getElementVal;
 
     _getElementVal = function(value) {
-      var set, useValueProperty;
-      if (this.el) {
-        set = !!value;
-        useValueProperty = function(value) {
-          var els, index, options, type, values;
-          if (this.el.value = value) {
-            this.api;
+      var els, i, options, set, type, useValueProperty, values;
+      set = !!value;
+      useValueProperty = function(value) {
+        if (set != null) {
+          this.el.value = value;
+          return this.api;
+        } else {
+          return this.el.value;
+        }
+      };
+      switch (this.el.nodeName.toLowerCase()) {
+        case "input":
+          type = this.el.getAttribute("type");
+          if (type === "radio" || type === "checkbox") {
+            els = queryAll('[name="' + this.el.getAttribute("name") + '"]', parent);
+            values = [];
+            i = -1;
+            while (++i < els.length) {
+              if (set && els[i].checked) {
+                els[i].removeAttribute('checked');
+              }
+            }
+          } else {
+            return useValueProperty.apply(this, [value]);
+          }
+          break;
+        case "textarea":
+          return useValueProperty.call(this, [value]);
+          break;
+        case "select":
+          if (set != null) {
+            options = queryAll("option", this.el);
           } else {
             this.el.value;
           }
-          switch (this.el.nodeName.toLowerCase()) {
-            case "input":
-              type = this.el.getAttribute("type");
-              if (type === "radio" || type === "checkbox") {
-                els = queryAll('[name="' + this.el.getAttribute("name") + '"]', parent);
-                values = [];
-                index = -1;
-
-                /*continue while ++index < els.length
-                		  					if set && els[index].checked? && els[index].value
-                		  						"test"
-                 */
-              }
-              break;
-            case "textarea":
-              useValueProperty.call(this, value);
-              break;
-            case "select":
-              if (set != null) {
-                options = queryAll("option", this.el);
-              } else {
-                this.el.value;
-              }
-              break;
-            default:
-              if (set != null) {
-                this.el.innerHTML = value;
-              } else {
-                if (typeof this.el.textContent !== "undefined") {
-                  return this.el.textContent;
-                } else if (typeof this.el.innerText !== "undefined") {
-                  return typeof this.el.innerText;
-                } else {
-                  return this.el.innerHTML;
-                }
-              }
+          break;
+        default:
+          if (set) {
+            this.el.innerHTML = value;
+          } else {
+            if (typeof this.el.textContent !== "undefined") {
+              return this.el.textContent;
+            } else if (typeof this.el.innerText !== "undefined") {
+              return typeof this.el.innerText;
+            } else {
+              return this.el.innerHTML;
+            }
           }
-          return set != null ? set : {
-            api: null
-          };
-        };
+          break;
       }
-      return null;
+      return this.api;
     };
 
     function SELECT(el, parent) {
@@ -66,7 +64,7 @@
         el: null
       };
       this.api.val = function(value) {
-        return _getElementVal(value);
+        return _getElementVal.call(this, value);
       };
       switch (typeof el) {
         case "string":
