@@ -44,7 +44,7 @@
           break;
         default:
           if (set) {
-            this.el.innerHTML = value;
+            this.el.innerHTML = this.val = value;
           } else {
             if (typeof this.el.textContent !== "undefined") {
               return this.el.textContent;
@@ -56,7 +56,7 @@
           }
           break;
       }
-      return this.api;
+      return this;
     };
 
     function SELECT(el, parent) {

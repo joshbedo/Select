@@ -32,8 +32,9 @@ class SELECT
 	  			else
 	  				@el.value
 	  		else
+
 	  			if set
-	  				@el.innerHTML = value
+	  				@el.innerHTML = @val = value
 	  			else
 	  				if typeof @el.textContent isnt "undefined"
 	  					return @el.textContent
@@ -42,16 +43,15 @@ class SELECT
 	  				else
 	  					return @el.innerHTML
 	  		 break
-	  					
+	  	return @		
 	  				
 
 	  	#return if set then @api else null
-		  return @api
+
 		
 	constructor: (el, parent) ->
 		@api = { el: null }
 		@api.val = (value) ->
-			#return _getElementVal value
 			return _getElementVal.call @, value
 		switch typeof el
 			when "string"

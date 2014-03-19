@@ -7,6 +7,12 @@ describe('Testing Select library methods', function() {
       expect(main).to.equal("test");
     });
 
+    it('Should grab element and return the updated value', function() {
+      var main = new Select("p", "main").val("boom");
+
+      expect(main.val).to.equal("boom")
+    });
+
     it('Should grab parent object and values', function() {
       var product = new Select({
         title: ".title",
@@ -15,16 +21,6 @@ describe('Testing Select library methods', function() {
       }, ".product");
 
       expect(product.title.value()).to.not.equal(null)
-
-      expect(main).to.equal("test");
-    });
-
-    it('Should grab element and change vlaue', function() {
-      var product = new Select("p", "product");
-      product.val("test");
-
-
-      expect(product.val).to.equal("test")
 
       expect(main).to.equal("test");
     });
