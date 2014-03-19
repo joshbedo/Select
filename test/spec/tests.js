@@ -30,11 +30,6 @@ describe('Testing Select library methods', function() {
   });
 
   describe('Testing Select #el', function() {
-    it('Should select the "main" element and grab innerHTML', function() {
-      var main = new Select("p", "main").el
-
-      expect(main.innerHTML).to.equal("Hello world! This is HTML5 Boilerplate.");
-    });
    
     it('Should select the footer element', function() {
       var footer = new Select("footer")
@@ -51,7 +46,7 @@ describe('Testing Select library methods', function() {
       expect(footer.el).to.not.equal(null);
     });
 
-    it('should select a parent element and change attributes', function() {
+    it('Should select a parent element and change attributes', function() {
       var image = new Select({
         title: ".title",
         titleImage: ".image",
