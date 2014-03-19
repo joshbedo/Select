@@ -38,4 +38,4 @@ and then you can go inside of the tests folder and explore the different methods
 Tests
 =======
 
-The tests are setup to examine so you can see different usages of the library. You can get to the tests by going to "/test/spec/index.html". 
+The tests are setup to examine so you can see different usages of the library. You can get to the tests by going to ```/test/spec/index.html```
