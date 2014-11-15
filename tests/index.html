@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="mocha.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <main>
+            <p>test</p>
+        </main>
+
+        <div class="product">
+            <h1 class="title">Product Name</h1>
+            <img src="cat.png" class="image" />
+            <a class="btn-purchase" href="javascript:;">Buy Now</a>
+        </div>
+
+        <footer>version 1.0</footer>
+
+        <div id="mocha"></div>
+        <script src="mocha.js"></script>
+        <script src="chai.js"></script>
+        <script>
+            mocha.ui("bdd");
+            mocha.reporter("html");
+            var expect = chai.expect;
+        </script>
+        <script src="../../main.js"></script>
+        <script src="tests.js"></script>
+        <script>
+            mocha.run();
+        </script>
+
+    </body>
+</html>
