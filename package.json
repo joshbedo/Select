@@ -1,0 +1,26 @@
+{
+  "name": "Select",
+  "version": "0.0.1",
+  "description": "Select grabs all the elements of a parent on the page at once when you need them instead of having seperate jQuery selectors spread out",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^1.9.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshbedo/Select.git"
+  },
+  "author": "Josh Bedo",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/joshbedo/Select/issues"
+  },
+  "homepage": "https://github.com/joshbedo/Select"
+}
